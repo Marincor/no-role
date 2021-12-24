@@ -1,5 +1,5 @@
 
-@media screen and (max-width:768px) {
+@media screen and (min-width:0px) {
     
     .banner__container {
         width: 80%;
@@ -26,6 +26,8 @@
         font-family: 'Roboto', sans-serif;
         color: darkgray;
         font-weight: bold;
+        font-size: 2rem;
+        margin: 1rem;
     }
     
     .container {
@@ -34,9 +36,22 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: blue;
         min-height: calc(103vh - 80px );
         width: 100%;
         height: auto;
+    }
+
+    .item {
+
+        font-family: 'Roboto', sans-serif;
+        text-transform: capitalize;
+        margin: 1rem;
+        color: black;
+        font-weight: bold;
+
+    }
+    .item:before {
+
+        content: '→';
     }
 }

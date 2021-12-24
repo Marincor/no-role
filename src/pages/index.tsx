@@ -17,8 +17,8 @@ export default function Home() {
             </div>
             <h2 className='title'>Escolha o seu rolê!</h2>
               <ul>
-                <li>marque os lugares que já conheceu</li>
-               <li>marque os lugares que quer conhecer</li>
+                <li className='item'>marque os lugares que já conheceu</li>
+                <li className='item'>marque os lugares que quer conhecer</li>
               </ul>
       </main>
     </div>
