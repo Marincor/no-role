@@ -1,0 +1,19 @@
+.container {
+    min-height: calc(100vh - 97px);
+        height: calc(auto - 97px);
+        width: 100vw;
+        justify-content: center;
+        align-items: center;
+}
+
+.container.row {
+    display: flex;
+  
+
+}
+
+.container.column {
+    display: flex;
+    flex-direction: column;
+  
+}
