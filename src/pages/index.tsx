@@ -11,7 +11,7 @@ export default function Home() {
         <link rel="preconnect" href="https://fonts.gstatic.com"/>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet"/>
       </Head>
-      <main className='container column'>
+      <main className='container'>
             <div className='banner__container'>
                 <img className='banner__img' src="https://res.cloudinary.com/twenty20/private_images/t_standard-fit/v1620958105/photosp/b322df1c-219d-49ae-94d3-3a16280cd011/b322df1c-219d-49ae-94d3-3a16280cd011.jpg" alt="" />
             </div>

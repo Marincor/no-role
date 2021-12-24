@@ -1,24 +1,42 @@
-.banner__container {
-    width: 80%;
-    height: 40vh;
-    border-radius: 1rem;
-    background-color: black;
-    border: 1px solid black;
-    box-shadow: 15px 15px 15px rgb(59, 56, 56);
 
-}
-
-.banner__img {
-
-    width: 100%;
-    height: 100%;
-    border-radius: 1rem;
-   
-}
-
-
-.title {
-    font-family: 'Roboto', sans-serif;
-    color: darkgray;
-    font-weight: bold;
+@media screen and (max-width:768px) {
+    
+    .banner__container {
+        width: 80%;
+        height: 40vh;
+        border-radius: 1rem;
+        background-color: black;
+        border: 1px solid black;
+        box-shadow: 15px 15px 15px rgb(59, 56, 56);
+        margin: 2rem;
+    
+    }
+    
+    .banner__img {
+    
+        width: 100%;
+        height: 100%;
+        border-radius: 1rem;
+        
+       
+    }
+    
+    
+    .title {
+        font-family: 'Roboto', sans-serif;
+        color: darkgray;
+        font-weight: bold;
+    }
+    
+    .container {
+    
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: blue;
+        min-height: calc(103vh - 80px );
+        width: 100%;
+        height: auto;
+    }
 }
