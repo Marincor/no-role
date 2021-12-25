@@ -51,6 +51,11 @@ table {
 
 /* modules */
 @import '../styles/modules/Home.css';
+@import '../styles/modules/Lista.css';
+@import '../styles/modules/Buscar.css';
 
 /* shared */
 @import '../styles/shared/BottomNavigation.css';
+@import '../styles/shared/utils.css';
+@import '../styles/shared/Maps.css';
+@import '../styles/shared/PhotoPlaces.css';

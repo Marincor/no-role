@@ -1,8 +1,52 @@
 import Head from "next/head"
+import { useContext, useState } from "react";
+import Maps from "../components/modules/Maps";
+import getPhotosPlaces from "../services/photoPlaces";
+import { BuscarContext } from "../store/buscar";
+
+
 
 const Search = () => {
 
 
+
+  const {therm, setTherm, places, setPlaces} = useContext(BuscarContext);
+  const [loading, setLoading] = useState(false);
+  const [modalMapOpen, setModalMapOpen] = useState(false);
+  const [place, setPlace] = useState({src: '', title: '', therm: ''})
+
+  const handleChange = (newValue: string) => {
+     setTherm(newValue)
+  }
+  const handleSearch = async () => {
+    setLoading(true)
+
+    try {
+     const photo = await (await getPhotosPlaces(therm)).json();
+     setPlace({...place, src: photo[0].image.url, title: photo[0].title, therm: therm})
+     console.log(photo)
+    } catch (error) {
+      throw error
+    }
+    finally {
+
+      setTimeout(()=>{
+        setLoading(false);
+        setModalMapOpen(true);
+        document.querySelector('input').value = "";
+      }, 2000)
+    }
+
+  
+  }
+
+  const handleList = () => {
+    const currentPlace = places;
+    currentPlace.push(place);
+    setPlaces(currentPlace);
+  }
+
+  console.log(places)
     return (
         <div >
         <Head>
@@ -13,10 +57,25 @@ const Search = () => {
           <link rel="preconnect" href="https://fonts.gstatic.com"/>
           <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet"/>
         </Head>
-        <main className='container column'>
+        <main className='container'>
            
               <h2 className='title'>Encontre o rolê perfeito</h2>
+              
+
+              <form className="form" >
+                  <input type="text" placeholder="digite o lugar desejado" className="form__input" value={therm} onChange={(e)=>{handleChange(e.target.value)}}/>
+                  <button type="submit" className="form__button" onClick={(e)=>{e.preventDefault(); handleSearch()}}>Buscar</button>
+              </form>
              
+             
+           {  modalMapOpen &&
+           <>
+           <Maps place={place} /> 
+           <button onClick={handleList}>Salvar</button>
+           </> 
+           
+           } 
+
         </main>
       </div>
     )

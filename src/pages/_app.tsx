@@ -1,10 +1,13 @@
 import BottomNavigation from '../components/shared/BottomNavigation'
+import { BuscarProvider } from '../store/buscar'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
   return (
     <div className='body'> 
-      <Component {...pageProps} />
+      <BuscarProvider>
+        <Component {...pageProps} />
+      </BuscarProvider>
       <BottomNavigation />
     </div>
   )
