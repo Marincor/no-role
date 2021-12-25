@@ -10,7 +10,7 @@ const Search = () => {
 
 
 
-  const {therm, setTherm, places, setPlaces} = useContext(BuscarContext);
+  const {therm, setTherm} = useContext(BuscarContext);
   const [loading, setLoading] = useState(false);
   const [modalMapOpen, setModalMapOpen] = useState(false);
   const [place, setPlace] = useState({src: '', title: '', therm: ''})
@@ -41,12 +41,12 @@ const Search = () => {
   }
 
   const handleList = () => {
-    const currentPlace = places;
+    const currentPlace = JSON.parse(localStorage.getItem('USER_PLACES')) || [];
     currentPlace.push(place);
-    setPlaces(currentPlace);
+    localStorage.setItem('USER_PLACES', JSON.stringify(currentPlace));
   }
 
-  console.log(places)
+
     return (
         <div >
         <Head>

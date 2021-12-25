@@ -1,7 +1,23 @@
 import Head from "next/head"
+import { useEffect, useState } from "react";
+import Maps from "../components/modules/Maps";
 
 const List = () => {
+  const [loading, setLoading] = useState(false);
+  const [place, setPlace] = useState([]);
 
+  useEffect(()=>{
+    setLoading(true)
+    const currentPlaces = JSON.parse(localStorage.getItem('USER_PLACES'))
+    setPlace(currentPlaces);
+  
+    setTimeout(()=>{
+      setLoading(false)
+
+    },2000 )
+
+  },[])
+console.log(place)
 
     return (
         <div >
@@ -16,6 +32,12 @@ const List = () => {
         <main className='container'>
            
               <h2 className='title'>Sua lista</h2>
+              {!loading && place.map((place) => {
+
+                  return(
+                      <Maps place={place}/>
+                  )
+              })}
              
         </main>
       </div>
