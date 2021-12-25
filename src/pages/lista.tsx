@@ -35,7 +35,7 @@ console.log(place)
               {!loading && place.map((place) => {
 
                   return(
-                      <Maps place={place}/>
+                      <Maps place={place} key={place.title}/>
                   )
               })}
              
