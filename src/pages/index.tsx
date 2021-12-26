@@ -1,4 +1,9 @@
+import { Avatar, Container, List, ListItem, ListItemAvatar, ListItemText, Typography } from '@mui/material'
+import { Box } from '@mui/system'
 import Head from 'next/head'
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import AddLocationIcon from '@mui/icons-material/AddLocation';
+
 
 export default function Home() {
   return (
@@ -11,16 +16,31 @@ export default function Home() {
         <link rel="preconnect" href="https://fonts.gstatic.com"/>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet"/>
       </Head>
-      <main className='container'>
-            <div className='banner__container'>
-                <img className='banner__img' src="https://res.cloudinary.com/twenty20/private_images/t_standard-fit/v1620958105/photosp/b322df1c-219d-49ae-94d3-3a16280cd011/b322df1c-219d-49ae-94d3-3a16280cd011.jpg" alt="" />
-            </div>
-            <h2 className='title'>Escolha o seu rolê!</h2>
-              <ul>
-                <li className='item'>marque os lugares que já conheceu</li>
-                <li className='item'>marque os lugares que quer conhecer</li>
-              </ul>
-      </main>
+      <Container maxWidth="lg"  >
+            <Box sx={{margin:'1rem'}}  >
+                <img width='300' height='200' className='banner__img' src="https://res.cloudinary.com/twenty20/private_images/t_standard-fit/v1620958105/photosp/b322df1c-219d-49ae-94d3-3a16280cd011/b322df1c-219d-49ae-94d3-3a16280cd011.jpg" alt="" />
+              <Typography variant='h4' component='h2' margin={2}>Qual o seu rolê?</Typography>
+            </Box>
+              <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+      <ListItem>
+        <ListItemAvatar>
+          <Avatar sx={{backgroundColor: "black"}}>
+           <LocationOnIcon />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary="Marque os lugares que já conheceu
+" />
+      </ListItem>
+      <ListItem>
+        <ListItemAvatar>
+        <Avatar sx={{backgroundColor: "black"}}>
+            <AddLocationIcon />
+        </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary="Marque os lugares que quer conhecer" />
+      </ListItem>
+    </List>
+      </Container>
     </div>
   )
 }

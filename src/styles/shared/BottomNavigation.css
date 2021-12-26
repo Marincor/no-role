@@ -1,26 +1,4 @@
-.footer {
-    height: 70px;
-    display: flex;
-    background-color: rgb(231, 231, 61);
-    justify-content: center;
-    align-items: flex-start;
-    padding: 5px;
-}
+.MuiBottomNavigationAction-label.Mui-selected.css-imwso6-MuiBottomNavigationAction-label {
 
-.list {
-    list-style: none;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    width: 100vw;
-    padding: 0;
-    margin: 0;
-}
-.items {
-
-   padding: 0 1rem;
-   cursor: pointer;
-}
-.text.lm {
-    margin-left: 0.3rem;
+    color: white;
 }
