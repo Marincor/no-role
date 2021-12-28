@@ -19,25 +19,27 @@ const Footer = () => {
         router.push(route);
     }
     
-                  {/* <ul className="list">
-                      <li className="items" onClick={()=>{handleRoute('/')}}>
-                          <Image src={HomeIcon} alt="início" width={40} height={40}/>
-                          <p>Início</p>
-                      </li>
-                      <li className="items" onClick={()=>{handleRoute('/buscar')}}>
-                           <Image src={SearchIcon} alt="buscar" width={40} height={40}/>
-                          <p>Buscar</p>
-                      </li>
-                      <li className="items lm" onClick={()=>{handleRoute('/lista')}}>
-                          <Image src={ListIcon} alt="lista" width={40} height={40}/>
-                          <p className='text lm'>Lista</p>
-                      </li>
-                      <li className="items" onClick={()=>{handleRoute('/sobre')}}>
-                          <Image src={AboutIcon} alt="" width={40} height={40}/>
-                          <p>Sobre</p>
-                      </li>
-                  </ul> */} 
-                  const [value, setValue] = React.useState('recents');
+ const [value, setValue] = React.useState('Início');
+
+ React.useEffect(()=>{
+    setPathNAme();
+
+ }, [])
+
+ const setPathNAme = () => {
+    switch(window.location.pathname) {
+        case '/': setValue('Início');
+        break;
+        case '/buscar': setValue('Buscar');
+        break;
+        case '/lista': setValue('Lista');
+        break;
+        case '/sobre': setValue('Sobre');
+        break;
+        default: setValue('Início');
+    }
+ }
+
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);

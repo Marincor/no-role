@@ -1,6 +1,7 @@
+import { Alert, Box, Button, Card, CardActions, CardContent, CardMedia, CircularProgress, Container, Snackbar, TextField, Typography } from "@mui/material";
 import Head from "next/head"
 import { useContext, useState } from "react";
-import Maps from "../components/modules/Maps";
+import Maps from "../components/shared/Maps";
 import getPhotosPlaces from "../services/photoPlaces";
 import { BuscarContext } from "../store/buscar";
 
@@ -8,33 +9,72 @@ import { BuscarContext } from "../store/buscar";
 
 const Search = () => {
 
-
-
   const {therm, setTherm} = useContext(BuscarContext);
   const [loading, setLoading] = useState(false);
   const [modalMapOpen, setModalMapOpen] = useState(false);
   const [place, setPlace] = useState({src: '', title: '', therm: ''})
+  const [error, setError] = useState(false);
+  const [sucess, setSucess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('Informe o lugar desejado!')
+
+ 
+
+  const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setError(false);
+    setModalMapOpen(false);
+  };
+
+  
+  const handleCloseSucess = (event?: React.SyntheticEvent | Event, reason?: string) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setSucess(false);
+    setModalMapOpen(false);
+  };
 
   const handleChange = (newValue: string) => {
      setTherm(newValue)
   }
   const handleSearch = async () => {
-    setLoading(true)
 
-    try {
-     const photo = await (await getPhotosPlaces(therm)).json();
-     setPlace({...place, src: photo[0].image.url, title: photo[0].title, therm: therm})
-     console.log(photo)
-    } catch (error) {
-      throw error
-    }
-    finally {
 
-      setTimeout(()=>{
-        setLoading(false);
-        setModalMapOpen(true);
-        document.querySelector('input').value = "";
-      }, 2000)
+    if(therm) {
+
+      setLoading(true)
+  
+      try {
+       const photo = await (await getPhotosPlaces(therm)).json();
+
+        if(photo.message) {
+          setLoading(false);
+          setErrorMessage(photo.message);
+          setError(true);
+        } else {
+
+          setPlace({...place, src: photo[0].image.url, title: photo[0].title, therm: therm})
+        }
+       console.log(photo)
+      } catch (error) {
+        console.log(error)
+        setErrorMessage(error.message);
+        setError(true);
+      }
+      finally {
+  
+        setTimeout(()=>{
+          setLoading(false);
+          !error && setModalMapOpen(true);
+          document.querySelector('input').value = "";
+        }, 2000)
+      }
+    } else {
+      setError(true);
     }
 
   
@@ -44,7 +84,9 @@ const Search = () => {
     const currentPlace = JSON.parse(localStorage.getItem('USER_PLACES')) || [];
     currentPlace.push(place);
     localStorage.setItem('USER_PLACES', JSON.stringify(currentPlace));
+    setSucess(true)
   }
+
 
 
     return (
@@ -57,26 +99,40 @@ const Search = () => {
           <link rel="preconnect" href="https://fonts.gstatic.com"/>
           <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet"/>
         </Head>
-        <main className='container'>
+        <Container maxWidth='lg'>
            
-              <h2 className='title'>Encontre o rolê perfeito</h2>
+              <Typography variant="h5" component="h2">Encontre o rolê perfeito</Typography>
               
 
               <form className="form" >
-                  <input type="text" placeholder="digite o lugar desejado" className="form__input" value={therm} onChange={(e)=>{handleChange(e.target.value)}}/>
-                  <button type="submit" className="form__button" onClick={(e)=>{e.preventDefault(); handleSearch()}}>Buscar</button>
+                  <TextField id="outlined-basic" label="Lugar" fullWidth variant="outlined" margin='normal'  onChange={(e)=>{handleChange(e.target.value)}}/>
+                  <Button type="submit" variant='contained' fullWidth color="info" sx={{backgroundColor: "black"}} onClick={(e)=>{e.preventDefault(); handleSearch()}}>Buscar</Button>
               </form>
-             
-             
+              <Snackbar open={error} autoHideDuration={6000} onClose={handleClose}>
+                  <Alert onClose={handleClose} severity="error" sx={{ width: '100%', marginBottom: '80%' }}>
+                      {errorMessage}
+                  </Alert>
+              </Snackbar>
+             { loading && <Box sx={{ display: 'flex', justifyContent:'center', marginTop: '40%'}}><CircularProgress sx={{color: 'rgb(98,6,35)'}} /></Box>
+    }
            {  modalMapOpen &&
-           <>
-           <Maps place={place} /> 
-           <button onClick={handleList}>Salvar</button>
-           </> 
+           <Box maxWidth="1000%" height='auto' sx={{marginBottom: '58px', marginTop: '10px'}}>
+                    <Card sx={{ maxWidth: 345, marginLeft: 'auto', marginRight: 'auto' }}>
+                      <Maps place={place} /> 
+                      <CardActions>
+                        <Button size='small' variant="contained" sx={{backgroundColor: 'rgb(98,6,35)'}} onClick={handleList}>Salvar</Button>
+                      </CardActions>
+                    </Card>
+           </Box> 
            
            } 
+             <Snackbar open={sucess} autoHideDuration={6000} onClose={handleCloseSucess}>
+                  <Alert onClose={handleCloseSucess} severity='success' sx={{ width: '100%', marginBottom: '80%' }}>
+                       Lugar salvo com sucesso!
+                  </Alert>
+              </Snackbar>
 
-        </main>
+        </Container>
       </div>
     )
 }

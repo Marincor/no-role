@@ -1,6 +1,7 @@
+import { Container, Typography } from "@mui/material";
 import Head from "next/head"
 import { useEffect, useState } from "react";
-import Maps from "../components/modules/Maps";
+import Maps from "../components/shared/Maps";
 
 const List = () => {
   const [loading, setLoading] = useState(false);
@@ -29,9 +30,9 @@ console.log(place)
           <link rel="preconnect" href="https://fonts.gstatic.com"/>
           <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet"/>
         </Head>
-        <main className='container'>
+        <Container>
            
-              <h2 className='title'>Sua lista</h2>
+              <Typography color="secondary"  >Sua lista</Typography>
               {!loading && place.map((place) => {
 
                   return(
@@ -39,7 +40,7 @@ console.log(place)
                   )
               })}
              
-        </main>
+        </Container>
       </div>
     )
 }

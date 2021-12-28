@@ -1,10 +1,12 @@
+import { Box, Container, Typography } from "@mui/material";
 import ImagePlaces from "./PhotoPlaces";
+
 
 const Maps = ({place}) =>  {
 console.log(place)
     return (
-        <div className="container">
-            <h2 className="therm">{place.therm.toUpperCase()}</h2>
+        <Box maxWidth='sm' sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginBottom: '2rem', backgroundColor: 'lightgray', padding: '1rem', border: '1px solid black'}}>
+            <Typography variant="h5">{place.therm.toUpperCase()}</Typography>
             <iframe
                 className="frame-Maps"
                 title="place"
@@ -13,7 +15,7 @@ console.log(place)
                 &q=${place.therm}`}
                 ></iframe>
             {place.src && <ImagePlaces src={place.src} alt={place.title} />} 
-        </div>
+        </Box>
 
     );
   }
