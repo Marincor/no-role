@@ -1,22 +1,23 @@
 import * as React from 'react';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import FolderIcon from '@mui/icons-material/Folder';
-import RestoreIcon from '@mui/icons-material/Restore';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { useRouter } from 'next/router';
 import { Paper } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
 import InfoIcon from '@mui/icons-material/Info';
 
-const Footer = () => {
+const Footer = ({OpenAnimation}) => {
     const router = useRouter();
   
     const handleRoute = async (route) => {
-   
-        router.push(route);
+        OpenAnimation(true);
+        setTimeout(() => {
+            router.push(route);
+            OpenAnimation(false);
+        }, 2000);
+        
     }
     
  const [value, setValue] = React.useState('Início');
@@ -47,8 +48,7 @@ const Footer = () => {
 
   return (
       <Paper  sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, display: 'flex', justifyContent: 'center' }} elevation={4}>
-
-                <BottomNavigation sx={{ width: 380, backgroundColor: 'rgb(98,6,35)' }} value={value} onChange={handleChange}>
+                <BottomNavigation sx={{ width: '100%', backgroundColor: 'rgb(98,6,35)' }} value={value} onChange={handleChange}>
                 <BottomNavigationAction
                     label="Início"
                     value="Início"

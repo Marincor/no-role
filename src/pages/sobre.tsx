@@ -15,7 +15,7 @@ const About = () => {
            
               <Typography className='title' variant="h5" component="h2">Sobre</Typography>
               <Typography marginTop={10}>WebApp criado por:  
-                <a href="https://github.com/Marincor" target='_blank'>Marincor</a> 
+                <a href="https://github.com/Marincor" target='_blank' rel='noreferrer'>Marincor</a> 
               </Typography>
              
         </main>

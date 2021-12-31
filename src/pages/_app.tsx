@@ -1,15 +1,28 @@
+import { Container, Typography } from '@mui/material'
+import { useState } from 'react'
+import AnimationWalk from '../components/shared/animationWalk'
 import Footer from '../components/shared/BottomNavigation'
 import { BuscarProvider } from '../store/buscar'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
+
+  const [animation, OpenAnimation] = useState(false)
+
   return (
-    <div className='body'> 
+    <Container sx={{display: 'flex', justifyContent: 'center'}}> 
       <BuscarProvider>
+        {animation? 
+        <Container maxWidth="sm">
+          <AnimationWalk /> 
+          <Typography variant="h4">Carregando...</Typography>
+        </Container>
+          :
         <Component {...pageProps} />
+        }
       </BuscarProvider>
-      <Footer />
-    </div>
+      <Footer OpenAnimation={OpenAnimation} />
+    </Container>
   )
 }
 

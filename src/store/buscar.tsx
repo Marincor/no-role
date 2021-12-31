@@ -1,12 +1,17 @@
-import { createContext, JSXElementConstructor, useState } from "react";
+import { createContext, useState } from "react";
 
-export const BuscarContext = createContext(null);
+export interface BuscarContextProps {
+    therm: string,
+    setTherm: (newValue: string) => void;
+}
+
+export const BuscarContext = createContext<BuscarContextProps>(undefined);
 
 BuscarContext.displayName = "Buscar";
 
 export const BuscarProvider = (props) => {
 
-    const [therm, setTherm] = useState<string>('');
+    const [therm, setTherm] = useState<BuscarContextProps['therm']>('');
 
     return (
         <BuscarContext.Provider value={{therm, setTherm}}>
