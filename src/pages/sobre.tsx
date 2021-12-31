@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import Head from "next/head"
 
 const About = () => {
@@ -12,7 +13,10 @@ const About = () => {
         </Head>
         <main className='container column'>
            
-              <h2 className='title'>Sobre</h2>
+              <Typography className='title' variant="h5" component="h2">Sobre</Typography>
+              <Typography marginTop={10}>WebApp criado por:  
+                <a href="https://github.com/Marincor" target='_blank'>Marincor</a> 
+              </Typography>
              
         </main>
       </div>

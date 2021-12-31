@@ -79,12 +79,21 @@ const Search = () => {
 
 
   }
+  console.log(place)
 
   const handleList = () => {
     const currentPlace = JSON.parse(localStorage.getItem('USER_PLACES')) || [];
-    currentPlace.push(place);
-    localStorage.setItem('USER_PLACES', JSON.stringify(currentPlace));
-    setSucess(true)
+
+    if(currentPlace.find((item) => item.title === place.title)) {
+        setErrorMessage("Esse lugar já consta em sua lista");
+        setError(true);
+    } else {
+
+      currentPlace.push(place);
+      localStorage.setItem('USER_PLACES', JSON.stringify(currentPlace));
+      setSucess(true)
+    }
+
   }
 
 
