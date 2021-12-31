@@ -1,4 +1,4 @@
-import { Container, Typography } from "@mui/material";
+import { Button, Container, Typography } from "@mui/material";
 import Head from "next/head"
 import { useEffect, useState } from "react";
 import Maps from "../components/shared/Maps";
@@ -30,13 +30,19 @@ console.log(place)
         <Container>
            
               <Typography color="secondary"  >Sua lista</Typography>
-              {!loading && place.map((place) => {
+              {place ? 
+            (!loading && place.map((place) => {
 
-                  return(
-                      <Maps place={place} key={place.title}/>
-                  )
-              })}
-             
+              return( 
+                        <Maps place={place} key={place.title}/>
+                    
+                     
+
+              )
+          }))
+         
+              : <p>Sua lista está vazia!</p>}
+            
         </Container>
       </div>
     )

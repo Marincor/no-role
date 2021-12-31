@@ -47,6 +47,5 @@ table {
 	height: auto;
 	position: absolute;
 }
-
-
+/* shared */
 @import './shared/BottomNavigation.css';
