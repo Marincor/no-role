@@ -1,4 +1,4 @@
-import { Container, Typography } from '@mui/material';
+import { Container } from '@mui/material';
 import React from 'react';
 import Lottie from 'react-lottie';
 import animationData from '../../../public/assets/animations/walkingAnimation.json'
