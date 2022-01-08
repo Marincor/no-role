@@ -44,7 +44,7 @@ const BuscarContent = ({
                 {modalMapOpen &&
                 <Box maxWidth="1000%" height='auto' sx={{ marginBottom: '58px', marginTop: '10px' }}>
                     <Card sx={{ maxWidth: 345, marginLeft: 'auto', marginRight: 'auto' }}>
-                        <Maps therm={place.therm} src={place.src} title={place.title} />
+                        <Maps therm={place.therm} src={place.src} title={place.title} isAList={false} />
                         <CardActions>
                             <Button size='small' variant="contained" sx={{ backgroundColor: 'rgb(98,6,35)' }} onClick={handleList}>Salvar</Button>
                         </CardActions>

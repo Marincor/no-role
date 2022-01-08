@@ -20,7 +20,7 @@ const ListContent = ( {place, loading }: any ) => {
                     (!loading && place.map((place: UserPlaces) => {
 
                         return (
-                            <Maps therm={place.therm} src={place.src} title={place.title} />
+                            <Maps therm={place.therm} src={place.src} title={place.title} isAList />
 
                         )
                     }))

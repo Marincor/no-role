@@ -1,9 +1,9 @@
 import { Box, Typography, Button } from "@mui/material";
-import { UserPlaces } from "../../infrastructure/interfaces/shared/userPlaces";
+import { MapsContentProps, UserPlaces } from "../../infrastructure/interfaces/shared/userPlaces";
 import ImagePlaces from "./PhotoPlaces";
 
 
-const Maps = ({title, therm, src}: UserPlaces) =>  {
+const Maps = ({title, therm, src, isAList}: MapsContentProps) =>  {
     const handleDelete = () => {
         const arr = JSON.parse(localStorage.getItem('USER_PLACES')) || [];
         const arrFiltered = arr.filter((item: UserPlaces) => item.title !== title);
@@ -19,7 +19,7 @@ const Maps = ({title, therm, src}: UserPlaces) =>  {
     }
 
     return (
-        <Box maxWidth='sm' sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginBottom: '5rem', backgroundColor: 'lightgray', padding: '1rem', border: '1px solid black'}}>
+        <Box maxWidth='sm' sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginBottom: `${isAList? "5rem" : "0.5rem"};`, backgroundColor: 'lightgray', padding: '1rem', border: '1px solid black'}}>
             <Typography variant="h5">{therm.toUpperCase()}</Typography>
             <iframe
                 className="frame-Maps"
