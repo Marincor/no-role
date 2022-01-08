@@ -6,6 +6,8 @@
       "dom.iterable",
       "esnext"
     ],
+    "noImplicitAny": true,
+    "removeComments": true,
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -26,5 +28,6 @@
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+
 }

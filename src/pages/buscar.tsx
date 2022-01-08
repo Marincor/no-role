@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
-import BuscarContent from "../components/modules/buscar/buscarContent";
+import BuscarContent from "../infrastructure/modules/buscarContent";
 import { BuscarContentProps } from "../infrastructure/interfaces/modules/buscar";
-import getPhotosPlaces from "../services/photoPlaces";
+import getPhotosPlaces from "../infrastructure/services/photoPlaces";
 import { BuscarContext, BuscarContextProps } from "../store/buscar";
+import { UserPlaces } from "../infrastructure/interfaces/shared/userPlaces";
 
 
 
@@ -30,7 +31,6 @@ const Search = () => {
     if (reason === 'clickaway') {
       return;
     }
-
     setSucess(false);
     setModalMapOpen(false);
   };
@@ -67,14 +67,12 @@ const Search = () => {
     } else {
         setError(true);
     }
-
-
   }
 
     //save list
   const handleList = () => {
-    const currentPlace = JSON.parse(localStorage.getItem('USER_PLACES')) || [];
-    if(currentPlace.find((item) => item.title === place.title)) {
+    const currentPlace: Array<UserPlaces> = JSON.parse(localStorage.getItem('USER_PLACES')) || [];
+    if(currentPlace.find((item: UserPlaces) => item.title === place.title)) {
         setErrorMessage("Esse lugar já consta em sua lista");
         setError(true);
     } else {

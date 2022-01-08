@@ -14,4 +14,5 @@ export interface BuscarContentProps {
     handleList: () => void,
     handleChange: (newValue: string) => void,
     handleSearch: () => void
-}
+};
+

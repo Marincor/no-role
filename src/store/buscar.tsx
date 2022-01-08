@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { ContextType, createContext, FC, ReactChild, useState } from "react";
 
 export interface BuscarContextProps {
     therm: string,
@@ -9,13 +9,13 @@ export const BuscarContext = createContext<BuscarContextProps>(undefined);
 
 BuscarContext.displayName = "Buscar";
 
-export const BuscarProvider = (props) => {
+export const BuscarProvider: FC = ({children}) => {
 
     const [therm, setTherm] = useState<BuscarContextProps['therm']>('');
 
     return (
         <BuscarContext.Provider value={{therm, setTherm}}>
-                {props.children}
+                {children}
         </BuscarContext.Provider>
     )
 }

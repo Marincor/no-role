@@ -2,20 +2,20 @@ import * as React from 'react';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { useRouter } from 'next/router';
+import { useRouter, NextRouter } from 'next/router';
 import { Paper } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
 import InfoIcon from '@mui/icons-material/Info';
+import { AnimationProps } from '../../infrastructure/interfaces/shared/animation';
 
-const Footer = ({OpenAnimation}) => {
-    const router = useRouter();
-  
-    const handleRoute = async (route) => {
-        OpenAnimation(true);
+const Footer = ({openAnimation}: AnimationProps) => {
+    const router: NextRouter = useRouter();
+    const handleRoute = async (route: string) => {
+        openAnimation(true);
         setTimeout(() => {
             router.push(route);
-            OpenAnimation(false);
+            openAnimation(false);
         }, 2000);
         
     }

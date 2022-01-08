@@ -1,10 +1,9 @@
-
-
-const ImagePlaces= ({src, alt}) => {
+import { UserPlaces } from "../../infrastructure/interfaces/shared/userPlaces";
 
 
 
-    return <img src={src} alt={alt} loading='lazy'  width="100%" height="200px" style={{marginTop: '1rem', marginBottom: '1rem'}} />;
+const ImagePlaces= ({src, title}: UserPlaces) => {
+    return <img src={src} alt={title} loading='lazy'  width="100%" height="200px" style={{marginTop: '1rem', marginBottom: '1rem'}} />;
     
   }
 

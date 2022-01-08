@@ -1,8 +1,8 @@
 import { Alert, Button, Card, CardActions, CircularProgress, Container, Snackbar, TextField, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import Head from "next/head";
-import { BuscarContentProps } from "../../../infrastructure/interfaces/modules/buscar";
-import Maps from "../../shared/Maps";
+import { BuscarContentProps } from "../interfaces/modules/buscar";
+import Maps from "../../components/shared/Maps";
 
 const BuscarContent = ({
     error,
@@ -44,7 +44,7 @@ const BuscarContent = ({
                 {modalMapOpen &&
                 <Box maxWidth="1000%" height='auto' sx={{ marginBottom: '58px', marginTop: '10px' }}>
                     <Card sx={{ maxWidth: 345, marginLeft: 'auto', marginRight: 'auto' }}>
-                        <Maps place={place} />
+                        <Maps therm={place.therm} src={place.src} title={place.title} />
                         <CardActions>
                             <Button size='small' variant="contained" sx={{ backgroundColor: 'rgb(98,6,35)' }} onClick={handleList}>Salvar</Button>
                         </CardActions>
