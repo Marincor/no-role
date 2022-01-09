@@ -6,6 +6,10 @@
       "dom.iterable",
       "esnext"
     ],
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": ["components/*"]
+    },
     "noImplicitAny": true,
     "removeComments": true,
     "allowJs": true,
@@ -25,7 +29,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/tests/index.test.js", "src/tests/index.spec.ts"  ],
   "exclude": [
     "node_modules"
   ],

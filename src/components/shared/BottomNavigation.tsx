@@ -50,6 +50,7 @@ const Footer = ({openAnimation}: AnimationProps) => {
       <Paper  sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, display: 'flex', justifyContent: 'center' }} elevation={4}>
                 <BottomNavigation sx={{ width: '100%', backgroundColor: 'rgb(98,6,35)' }} value={value} onChange={handleChange}>
                 <BottomNavigationAction
+                 data-testid="bottomNavigation"
                     label="Início"
                     value="Início"
                     onClick={()=>{handleRoute('/')}}

@@ -25,14 +25,14 @@ const IndexContent = ({ animation, handleAnimation }: IndexContentProps ) => {
                 ) : (
                     <>
                         <Box sx={{ margin: '1rem' }}  >
-                            <img width='300' height='200' src="https://images.nappy.co/uploads/large/high-res-0325-21592075363xkaufglncvaxh69vd9ouyxi4pr9votdqqrea5wtakcfqxaugjvdveh7oaaz0cwecvycbbs14l45zzpmbq3tfezqqgstlspmyyu7a.jpg?auto=format&fm=jpg&w=1280&q=75" alt="pessoa com skate" loading='lazy' />
-                            <Typography variant='h4' component='h2' margin={2}>Qual o seu rolê?</Typography>
+                            <img width='300' height='200' data-testid="home__banner" src="https://images.nappy.co/uploads/large/high-res-0325-21592075363xkaufglncvaxh69vd9ouyxi4pr9votdqqrea5wtakcfqxaugjvdveh7oaaz0cwecvycbbs14l45zzpmbq3tfezqqgstlspmyyu7a.jpg?auto=format&fm=jpg&w=1280&q=75" alt="pessoa com skate" loading='lazy' />
+                            <Typography variant='h4' component='h2' margin={2} data-jest="home__title">Qual o seu rolê?</Typography>
                         </Box>
                         <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
                             <ListItem>
-                                <ListItemAvatar>
+                                <ListItemAvatar >
                                     <Avatar sx={{ backgroundColor: "gray" }}>
-                                        <LocationOnIcon />
+                                        <LocationOnIcon data-testid="iconLocation"  />
                                     </Avatar>
                                 </ListItemAvatar>
                                 <ListItemText primary="Marque os lugares que já conheceu - Em breve" />
@@ -40,7 +40,7 @@ const IndexContent = ({ animation, handleAnimation }: IndexContentProps ) => {
                             <ListItem>
                                 <ListItemAvatar onClick={handleAnimation}>
                                     <Avatar sx={{ backgroundColor: "black" }}>
-                                        <AddLocationIcon />
+                                        <AddLocationIcon data-testid="iconAddLocation" />
                                     </Avatar>
                                 </ListItemAvatar>
                                 <ListItemText primary="Marque os lugares que quer conhecer" />
