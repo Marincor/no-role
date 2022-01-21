@@ -4,6 +4,7 @@ import ListContent from "../infrastructure/modules/listaContent";
 const List = () => {
   const [loading, setLoading] = useState(false);
   const [place, setPlace] = useState([]);
+  const [animation, openAnimation] = useState(false);
 
   useEffect(()=>{
     setLoading(true)
@@ -17,7 +18,7 @@ const List = () => {
 
   },[])
 
-    return ( <ListContent place={place} loading={loading} /> )
+    return ( <ListContent place={place} loading={loading} animation={animation} openAnimation={openAnimation}/> )
 }
 
 export default List;

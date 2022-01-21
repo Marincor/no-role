@@ -7,10 +7,10 @@ module.exports = {
   moduleNameMapper: {
     // Handle CSS imports (with CSS modules)
     // https://jestjs.io/docs/webpack#mocking-css-modules
-    '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
+    "/\.(css|sass|scss)$/": "identity-obj-proxy",
 
     // Handle CSS imports (without CSS modules)
-    '^.+\\.(css|sass|scss)$': '<rootDir>/__mocks__/styleMock.js',
+    '^.+\\.(css|sass|scss)$': "identity-obj-proxy",
 
     // Handle image imports
     // https://jestjs.io/docs/webpack#handling-static-assets
@@ -19,7 +19,6 @@ module.exports = {
     // Handle module aliases
     '^@/components/(.*)$': '<rootDir>/components/$1',
   },
-  testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
   testEnvironment: 'jsdom',
   transform: {
     // Use babel-jest to transpile tests with the next/babel preset
@@ -31,4 +30,8 @@ module.exports = {
     '^.+\\.module\\.(css|sass|scss)$',
   ],
   testEnvironment: 'jest-environment-jsdom',
+  moduleDirectories: ["node_modules", "src"],
+  modulePaths: [
+    "<rootDir>"
+  ],
   };

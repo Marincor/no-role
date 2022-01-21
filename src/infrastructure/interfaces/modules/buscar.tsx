@@ -13,6 +13,8 @@ export interface BuscarContentProps {
     handleCloseSuccess: (event?: React.SyntheticEvent | Event, reason?: string) => void,
     handleList: () => void,
     handleChange: (newValue: string) => void,
-    handleSearch: () => void
+    handleSearch: () => void,
+    animation: boolean,
+    openAnimation: (newValue: boolean) => void
 };
 

@@ -14,7 +14,8 @@ const Search = () => {
   const [place, setPlace] = useState<BuscarContentProps['place']>({ src: '', title: '', therm: '' })
   const [error, setError] = useState<BuscarContentProps['error']>(false);
   const [sucess, setSucess] = useState<BuscarContentProps['sucess']>(false);
-  const [errorMessage, setErrorMessage] = useState<BuscarContentProps['errorMessage']>('Informe o lugar desejado!')
+  const [errorMessage, setErrorMessage] = useState<BuscarContentProps['errorMessage']>('Informe o lugar desejado!');
+  const [animation, openAnimation] = useState<BuscarContentProps['animation']>(false);
 
 
 //  close notification snackbar of error
@@ -95,6 +96,8 @@ const Search = () => {
     handleList={handleList}
     handleChange={handleChange}
     handleSearch={handleSearch}
+    openAnimation={openAnimation}
+    animation={animation}
           /> 
   )
 }

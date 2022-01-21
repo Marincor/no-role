@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom";
-import { render, screen, waitFor } from "@testing-library/react";
-import Home from "../pages/index";
+import { render, screen } from "@testing-library/react";
+import Home from "../../pages/index";
 
 
 describe("At the Home Page shows the:", () => {
@@ -30,9 +30,13 @@ describe("At the Home Page shows the:", () => {
     render(<Home />);
     const iconLocation = screen.getByTestId("iconLocation");
     const iconAddLocation = screen.getByTestId("iconAddLocation");
-
+    
     expect(iconLocation).toBeInTheDocument();
     expect(iconAddLocation).toBeInTheDocument();
   });
-
+  it("Botton Navigation", () => {
+    render(<Home />);
+    const bottonNavigation = screen.getByTestId('bottomNavigation');
+    expect(bottonNavigation).toBeInTheDocument();
+  })
 });
