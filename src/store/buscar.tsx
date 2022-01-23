@@ -1,4 +1,4 @@
-import { ContextType, createContext, FC, ReactChild, useState } from "react";
+import { createContext, FC, useState } from "react";
 
 export interface BuscarContextProps {
     therm: string,
