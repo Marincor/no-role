@@ -49,7 +49,7 @@ Web App feito com intuito de ser uma agenda de eventos, onde o usuário consiga 
 - Continuous integration integrado aos testes (github actions).
   - [![Tests -  CI](https://github.com/Marincor/no-role/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/Marincor/no-role/actions/workflows/tests.yml)
 
-# <img src="https://user-images.githubusercontent.com/84210050/141196999-85230390-c3dd-4e69-b0e0-05d1a07cfbed.png" alt="instruction-icon" width="30px" /> Instruções
+# <img src="https://user-images.githubusercontent.com/84210050/141196999-85230390-c3dd-4e69-b0e0-05d1a07cfbed.png" alt="instruction-icon" width="30px" /> Instruções:
 
 1 - clone o repositório em sua maquina com o comando: <code>git clone https://github.com/Marincor/no-role.git</code>
 
