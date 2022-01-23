@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
+import { ListContentProps } from "src/infrastructure/interfaces/modules/lista";
 import ListContent from "../infrastructure/modules/listaContent";
 
 const List = () => {
-  const [loading, setLoading] = useState(false);
-  const [place, setPlace] = useState([]);
-  const [animation, openAnimation] = useState(false);
+  const [loading, setLoading] = useState<ListContentProps['loading']>(false);
+  const [place, setPlace] = useState<ListContentProps['place']>([]);
+  const [animation, openAnimation] = useState<ListContentProps['animation']>(false);
 
   useEffect(()=>{
     setLoading(true)

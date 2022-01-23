@@ -41,8 +41,10 @@ const BuscarContent = ({
                         <>
                             <Typography variant="h5" component="h2">Encontre o rolê perfeito</Typography>
                             <form className="form" >
-                                <TextField id="outlined-basic" label="Lugar" fullWidth variant="outlined" margin='normal' onChange={(e) => { handleChange(e.target.value) }} />
-                                <Button type="submit" variant='contained' fullWidth color="info" sx={{ backgroundColor: "black" }} onClick={(e) => { e.preventDefault(); handleSearch() }}>Buscar</Button>
+                                <TextField id="outlined-basic" label="Lugar" data-testid="input" 
+                                 inputProps={{ "data-testid": "input" }} 
+                                aria-label="search-input" fullWidth variant="outlined" margin='normal' onChange={(e) => { handleChange(e.target.value) }} />
+                                <Button type="submit"  data-testid="searchButton" variant='contained' fullWidth color="info" sx={{ backgroundColor: "black" }} onClick={(e) => { e.preventDefault(); handleSearch() }}>Buscar</Button>
                             </form>
                             <Snackbar open={error} autoHideDuration={6000} onClose={handleClose}>
                                 <Alert onClose={handleClose} severity="error" sx={{ width: '100%', marginBottom: '80%' }}>
@@ -56,11 +58,12 @@ const BuscarContent = ({
                                 </Box>
                             }
                             {modalMapOpen &&
-                                <Box maxWidth="1000%" height='auto' sx={{ marginBottom: '58px', marginTop: '10px' }}>
+                                <Box maxWidth="1000%" height='auto' sx={{ marginBottom: '58px', marginTop: '10px' }} data-testid="box-content" >
                                     <Card sx={{ maxWidth: 345, marginLeft: 'auto', marginRight: 'auto' }}>
                                         <Maps therm={place.therm} src={place.src} title={place.title} isAList={false} />
                                         <CardActions>
-                                            <Button size='small' variant="contained" sx={{ backgroundColor: 'rgb(98,6,35)' }} onClick={handleList}>Salvar</Button>
+                                            <Button size='small' variant="contained" sx={{ backgroundColor: 'rgb(98,6,35)' }} onClick={handleList}
+                                          >Salvar</Button>
                                         </CardActions>
                                     </Card>
                                 </Box>

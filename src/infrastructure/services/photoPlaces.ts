@@ -1,6 +1,6 @@
 export default async function getPhotosPlaces(therm:string) {
 
-    return await fetch(`https://google-image-search1.p.rapidapi.com/?keyword=${therm}&max=10`, {
+    const req: Response = await fetch(`https://google-image-search1.p.rapidapi.com/?keyword=${therm}&max=10`, {
          "method": "GET",
          "headers": {
              "x-rapidapi-host": "google-image-search1.p.rapidapi.com",
@@ -8,5 +8,6 @@ export default async function getPhotosPlaces(therm:string) {
          }
      })
     
+    return req;
  
  }

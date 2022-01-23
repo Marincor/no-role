@@ -4,6 +4,7 @@ import { BuscarContentProps } from "../infrastructure/interfaces/modules/buscar"
 import getPhotosPlaces from "../infrastructure/services/photoPlaces";
 import { BuscarContext, BuscarContextProps } from "../store/buscar";
 import { UserPlaces } from "../infrastructure/interfaces/shared/userPlaces";
+import { PhotoPlacesModel } from "src/infrastructure/interfaces/services/photoPlaces";
 
 
 
@@ -46,14 +47,9 @@ const Search = () => {
     if (therm) {
       setLoading(true)
       try {
-        const photo = await (await getPhotosPlaces(therm)).json();
-        if (photo.message) {
-          setLoading(false);
-          setErrorMessage(photo.message);
-          setError(true);
-        } else {
+        const photo: PhotoPlacesModel[] | undefined = await (await getPhotosPlaces(therm)).json();
           setPlace({ ...place, src: photo[0].image.url, title: photo[0].title, therm: therm })
-        }
+        
       } catch (error) {
           setErrorMessage(error.message);
           setError(true);
