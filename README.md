@@ -61,3 +61,6 @@ Web App feito com intuito de ser uma agenda de eventos, onde o usuário consiga 
 
 5 - caso a aplicação não abra automaticamente, entre no endereço a seguir: http://localhost:3000/
 
+# ✨ Qualidade do código:
+  - Análise via <a href="https://deepscan.io/"> DeepScan </a>: [![DeepScan grade](https://deepscan.io/api/teams/16570/projects/19877/branches/523396/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=16570&pid=19877&bid=523396)
+
