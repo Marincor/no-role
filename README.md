@@ -49,6 +49,9 @@ Web App feito com intuito de ser uma agenda de eventos, onde o usuário consiga 
 - Continuous integration integrado aos testes (github actions).
   - [![Tests -  CI](https://github.com/Marincor/no-role/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/Marincor/no-role/actions/workflows/tests.yml)
 
+# ✨ Qualidade do código:
+  - Análise via <a href="https://deepscan.io/"> DeepScan </a>: [![DeepScan grade](https://deepscan.io/api/teams/16570/projects/19877/branches/523396/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=16570&pid=19877&bid=523396)
+
 # <img src="https://user-images.githubusercontent.com/84210050/141196999-85230390-c3dd-4e69-b0e0-05d1a07cfbed.png" alt="instruction-icon" width="30px" /> Instruções:
 
 1 - clone o repositório em sua maquina com o comando: <code>git clone https://github.com/Marincor/no-role.git</code>
@@ -61,6 +64,5 @@ Web App feito com intuito de ser uma agenda de eventos, onde o usuário consiga 
 
 5 - caso a aplicação não abra automaticamente, entre no endereço a seguir: http://localhost:3000/
 
-# ✨ Qualidade do código:
-  - Análise via <a href="https://deepscan.io/"> DeepScan </a>: [![DeepScan grade](https://deepscan.io/api/teams/16570/projects/19877/branches/523396/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=16570&pid=19877&bid=523396)
+
 
