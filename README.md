@@ -6,3 +6,11 @@
 
 .... em construção !
 <img src="https://aquitemplacas.com.br/img/produtos/g/3463-sala-de-espera.jpg" width="450px">
+
+
+
+Testes:
+
+[![Tests -  CI](https://github.com/Marincor/no-role/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/Marincor/no-role/actions/workflows/tests.yml)
+
+
