@@ -19,7 +19,6 @@ module.exports = {
     // Handle module aliases
     '^@/components/(.*)$': '<rootDir>/components/$1',
   },
-  testEnvironment: 'jsdom',
   transform: {
     // Use babel-jest to transpile tests with the next/babel preset
     // https://jestjs.io/docs/configuration#transform-objectstring-pathtotransformer--pathtotransformer-object
