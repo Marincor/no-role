@@ -9,7 +9,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import InfoIcon from '@mui/icons-material/Info';
 import { AnimationProps } from '../../infrastructure/interfaces/shared/animation';
 
-const Footer = ({openAnimation}: AnimationProps) => {
+const BottomNavigationFooter = ({openAnimation}: AnimationProps) => {
     const router: NextRouter = useRouter();
     const handleRoute = async (route: string) => {
         openAnimation(true);
@@ -48,9 +48,9 @@ const Footer = ({openAnimation}: AnimationProps) => {
 
   return (
       <Paper  sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, display: 'flex', justifyContent: 'center' }} elevation={4}>
-                <BottomNavigation sx={{ width: '100%', backgroundColor: 'rgb(98,6,35)' }} value={value} onChange={handleChange}>
+                <BottomNavigation data-testid="bottomNavigation" sx={{ width: '100%', backgroundColor: 'rgb(98,6,35)' }} value={value} onChange={handleChange}>
                 <BottomNavigationAction
-                 data-testid="bottomNavigation"
+                    data-testid="homeIcon"
                     label="Início"
                     value="Início"
                     onClick={()=>{handleRoute('/')}}
@@ -59,6 +59,7 @@ const Footer = ({openAnimation}: AnimationProps) => {
                         />}
                     />
                 <BottomNavigationAction
+                    data-testid="searchIcon"
                     label="Buscar"
                     value="Buscar"
                     onClick={()=>{handleRoute('/buscar')}}
@@ -80,4 +81,4 @@ const Footer = ({openAnimation}: AnimationProps) => {
   );
 }
 
-export default Footer;
+export default BottomNavigationFooter;

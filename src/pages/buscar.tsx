@@ -4,6 +4,7 @@ import { BuscarContentProps } from "../infrastructure/interfaces/modules/buscar"
 import getPhotosPlaces from "../infrastructure/services/photoPlaces";
 import { BuscarContext, BuscarContextProps } from "../store/buscar";
 import { UserPlaces } from "../infrastructure/interfaces/shared/userPlaces";
+import { PhotoPlacesModel } from "src/infrastructure/interfaces/services/photoPlaces";
 
 
 
@@ -14,7 +15,8 @@ const Search = () => {
   const [place, setPlace] = useState<BuscarContentProps['place']>({ src: '', title: '', therm: '' })
   const [error, setError] = useState<BuscarContentProps['error']>(false);
   const [sucess, setSucess] = useState<BuscarContentProps['sucess']>(false);
-  const [errorMessage, setErrorMessage] = useState<BuscarContentProps['errorMessage']>('Informe o lugar desejado!')
+  const [errorMessage, setErrorMessage] = useState<BuscarContentProps['errorMessage']>('Informe o lugar desejado!');
+  const [animation, openAnimation] = useState<BuscarContentProps['animation']>(false);
 
 
 //  close notification snackbar of error
@@ -45,14 +47,9 @@ const Search = () => {
     if (therm) {
       setLoading(true)
       try {
-        const photo = await (await getPhotosPlaces(therm)).json();
-        if (photo.message) {
-          setLoading(false);
-          setErrorMessage(photo.message);
-          setError(true);
-        } else {
+        const photo: PhotoPlacesModel[] | undefined = await (await getPhotosPlaces(therm)).json();
           setPlace({ ...place, src: photo[0].image.url, title: photo[0].title, therm: therm })
-        }
+        
       } catch (error) {
           setErrorMessage(error.message);
           setError(true);
@@ -95,6 +92,8 @@ const Search = () => {
     handleList={handleList}
     handleChange={handleChange}
     handleSearch={handleSearch}
+    openAnimation={openAnimation}
+    animation={animation}
           /> 
   )
 }

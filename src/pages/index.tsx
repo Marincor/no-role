@@ -10,7 +10,6 @@ export default function Home() {
   const handleAnimation = () => {
       openAnimation(true);
       setTimeout(()=>{
-        router.push('/buscar')
         openAnimation(false);
       }, 2000)
   }

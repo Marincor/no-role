@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { ListContentProps } from "src/infrastructure/interfaces/modules/lista";
 import ListContent from "../infrastructure/modules/listaContent";
 
 const List = () => {
-  const [loading, setLoading] = useState(false);
-  const [place, setPlace] = useState([]);
+  const [loading, setLoading] = useState<ListContentProps['loading']>(false);
+  const [place, setPlace] = useState<ListContentProps['place']>([]);
+  const [animation, openAnimation] = useState<ListContentProps['animation']>(false);
 
   useEffect(()=>{
     setLoading(true)
@@ -17,7 +19,7 @@ const List = () => {
 
   },[])
 
-    return ( <ListContent place={place} loading={loading} /> )
+    return ( <ListContent place={place} loading={loading} animation={animation} openAnimation={openAnimation}/> )
 }
 
 export default List;
