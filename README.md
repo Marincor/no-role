@@ -43,6 +43,12 @@ Web App feito com intuito de ser uma agenda de eventos, onde o usuário consiga 
    
    - Material-UI -   React-Lotties
 
+# 🏗 Arquitetura:
+  - Construido com base na arquitetura clean:
+  
+ ![Opportunity Solution Tree](https://user-images.githubusercontent.com/84210050/150713128-f391e4e7-eec9-4c2c-9882-b0c32a846532.jpg)
+
+
 # 🧪 Testes:
 - Utilização de Jest;
 - Testes de renderização (textos, icones, logos e botões);
