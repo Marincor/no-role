@@ -2,7 +2,7 @@
 
 > Marque os lugares que quer conhecer!
 
-☰ <a href="#"> Aplicação </a> | <a href="#"> Sobre </a>  | <a href="#"> Responsividade </a>  | <a href="#"> Funcionalidades </a>  | <a href="#"> Tecnologias </a>   | <a href="#"> Arquitetura </a> | <a href="#"> Instruções </a>
+☰ <a href="https://github.com/Marincor/no-role#-aplica%C3%A7%C3%A3o"> Aplicação </a> | <a href="https://github.com/Marincor/no-role#-sobre"> Sobre </a>  | <a href="https://github.com/Marincor/no-role#-funcionalidades"> Funcionalidades </a>  | <a href="https://github.com/Marincor/no-role#-tecnologias-usadas"> Tecnologias </a>   | <a href="https://github.com/Marincor/no-role#-arquitetura"> Arquitetura </a> | <a href="https://github.com/Marincor/no-role#-testes"> Testes </a> | <a href="https://github.com/Marincor/no-role#-qualidade-do-c%C3%B3digo"> Qualidade </a> | <a href="https://github.com/Marincor/no-role#-instru%C3%A7%C3%B5es"> Instruções </a>
 
 <hr/>
 
